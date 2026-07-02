@@ -35,7 +35,7 @@ export function DeploymentList({ deployments, onDeleteSelected, isDeleting }: Pr
   };
 
   const handleDelete = () => {
-    if (selectedUids.size > 0 && window.confirm(`Seçili ${selectedUids.size} deployment'ı silmek istediğinize emin misiniz?`)) {
+    if (selectedUids.size > 0 && window.confirm(`Are you sure you want to delete ${selectedUids.size} selected deployments?`)) {
       onDeleteSelected(Array.from(selectedUids));
       setSelectedUids(new Set());
     }
@@ -58,11 +58,11 @@ export function DeploymentList({ deployments, onDeleteSelected, isDeleting }: Pr
       <div className="p-6 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h2 className="text-xl font-display font-semibold text-gray-900 mb-1 flex items-center gap-2">
-            Deployment'lar
+            Deployments
             <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs">{deployments.length}</span>
           </h2>
           <p className="text-sm text-gray-500">
-            Silmek istediğiniz deployment'ları seçin.
+            Select the deployments you want to delete.
           </p>
         </div>
         
@@ -72,7 +72,7 @@ export function DeploymentList({ deployments, onDeleteSelected, isDeleting }: Pr
             className="text-sm px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50 text-gray-700 font-medium flex items-center gap-1.5 transition-colors"
           >
             <Filter className="w-4 h-4" />
-            Hatalıları Seç
+            Select Failed
           </button>
           
           <button
@@ -85,7 +85,7 @@ export function DeploymentList({ deployments, onDeleteSelected, isDeleting }: Pr
             ) : (
               <Trash2 className="w-4 h-4" />
             )}
-            Seçilileri Sil ({selectedUids.size})
+            Delete Selected ({selectedUids.size})
           </button>
         </div>
       </div>
@@ -103,9 +103,9 @@ export function DeploymentList({ deployments, onDeleteSelected, isDeleting }: Pr
                 />
               </th>
               <th className="px-6 py-3 font-semibold">URL</th>
-              <th className="px-6 py-3 font-semibold">Durum</th>
-              <th className="px-6 py-3 font-semibold">Oluşturan</th>
-              <th className="px-6 py-3 font-semibold">Tarih</th>
+              <th className="px-6 py-3 font-semibold">State</th>
+              <th className="px-6 py-3 font-semibold">Creator</th>
+              <th className="px-6 py-3 font-semibold">Date</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
@@ -113,7 +113,7 @@ export function DeploymentList({ deployments, onDeleteSelected, isDeleting }: Pr
               <tr>
                 <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
                   <AlertCircle className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                  <p>Bu projede deployment bulunamadı.</p>
+                  <p>No deployments found in this project.</p>
                 </td>
               </tr>
             ) : (

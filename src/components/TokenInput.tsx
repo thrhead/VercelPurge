@@ -22,8 +22,8 @@ export function TokenInput({ onTokenSubmit }: Props) {
         Vercel API Token
       </h2>
       <p className="text-sm text-gray-500 mb-6">
-        Lütfen Vercel hesap ayarlarınızdan oluşturduğunuz Personal Access Token'ı girin. 
-        Bu token sadece tarayıcınızda tutulur ve güvenle Vercel API'sine iletilir.
+        Please enter your Personal Access Token created in your Vercel account settings. 
+        This token is stored securely in your browser and is only sent to the Vercel API.
       </p>
       
       <form onSubmit={handleSubmit} className="flex gap-3">
@@ -31,7 +31,7 @@ export function TokenInput({ onTokenSubmit }: Props) {
           type="password"
           value={token}
           onChange={(e) => setToken(e.target.value)}
-          placeholder="Token (ör. px1yZ...)"
+          placeholder="Token (e.g. px1yZ...)"
           className="flex-1 rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all"
         />
         <button
@@ -39,7 +39,7 @@ export function TokenInput({ onTokenSubmit }: Props) {
           disabled={!token.trim()}
           className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors"
         >
-          Devam Et
+          Continue
           <ArrowRight className="w-4 h-4" />
         </button>
       </form>

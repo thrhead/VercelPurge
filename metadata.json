@@ -1,6 +1,6 @@
 {
   "name": "Vercel Bulk Deleter",
-  "description": "Vercel üzerinde bulunan deployment'ları topluca silebilmenizi sağlayan pratik bir araç.",
+  "description": "A practical tool that allows you to easily bulk delete deployments on Vercel.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

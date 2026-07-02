@@ -45,7 +45,7 @@ export default function App() {
       const data = await api.getProjects();
       setProjects(data);
     } catch (err: any) {
-      setError(err.message || 'Projeler yüklenirken hata oluştu.');
+      setError(err.message || 'Error loading projects.');
       if (err.message?.includes('401') || err.message?.includes('Unauthorized')) {
         handleLogout();
       }
@@ -62,7 +62,7 @@ export default function App() {
       const data = await api.getDeployments(projectId, 100);
       setDeployments(data);
     } catch (err: any) {
-      setError(err.message || 'Deploymentlar yüklenirken hata oluştu.');
+      setError(err.message || 'Error loading deployments.');
     } finally {
       setIsLoadingDeployments(false);
     }
@@ -99,9 +99,9 @@ export default function App() {
         setDeployments(prev => prev.filter(d => d.uid !== uid));
       }
       
-      alert(`${successCount} adet deployment başarıyla silindi.`);
+      alert(`Successfully deleted ${successCount} deployments.`);
     } catch (err: any) {
-      setError(`Silme işlemi sırasında hata oluştu: ${err.message}. ${successCount} adet başarıyla silindi.`);
+      setError(`Error during deletion: ${err.message}. ${successCount} successfully deleted.`);
     } finally {
       setIsDeleting(false);
       // Reload deployments to get the latest state
@@ -128,7 +128,7 @@ export default function App() {
               className="text-sm font-medium text-gray-500 hover:text-gray-900 flex items-center gap-1.5 transition-colors"
             >
               <LogOut className="w-4 h-4" />
-              Çıkış Yap
+              Logout
             </button>
           )}
         </div>
@@ -167,7 +167,7 @@ export default function App() {
                 {isLoadingDeployments ? (
                   <div className="bg-white rounded-xl border border-gray-200 p-12 flex flex-col justify-center items-center text-gray-500 gap-4">
                     <span className="w-8 h-8 border-2 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></span>
-                    <p className="text-sm">Deployment'lar yükleniyor...</p>
+                    <p className="text-sm">Loading deployments...</p>
                   </div>
                 ) : (
                   <DeploymentList 

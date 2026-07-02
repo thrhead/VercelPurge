@@ -1,14 +1,20 @@
-# vercel-purge
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)
-![Developer](https://img.shields.io/badge/Developer-thrhead-orange.svg)
+# Run and deploy your AI Studio app
+
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/d1271e22-5bef-4b18-9709-b3691d15848c
+
+## Run Locally
+
+**Prerequisites:**  Node.js
 
 
-> An open-source web application designed to help developers bulk delete unwanted or outdated Vercel deployments in seconds. 
-
-### 🛑 The Problem
-Vercel is amazing, but cleaning up hundreds of old preview deployments manually through the official dashboard can be tedious and time-consuming. You have to click them one by one.
-
-### ✨ The Solution
-**vercel-purge** solves this by connecting to your Vercel account via an Access Token, listing your projects, and allowing you to select and purge multiple deployments simultaneously with just a few clicks.
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
